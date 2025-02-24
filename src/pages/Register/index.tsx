@@ -7,6 +7,7 @@ import useRegisterMutation from "@/tanstack/hooks/auth/useRegisterMutation";
 import { useNavigate } from "react-router";
 import useNavigateByAuth from "@/hooks/useNavigateByAuth";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 function Register() {
   const navigate = useNavigate();
@@ -44,7 +45,9 @@ function Register() {
         />
       </div>
       <div>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          <FormattedMessage id="link.login" />
+        </Link>
       </div>
     </div>
   );

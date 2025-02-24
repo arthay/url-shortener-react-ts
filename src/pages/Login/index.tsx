@@ -7,6 +7,7 @@ import { useCallback } from "react";
 import useNavigateByAuth from "@/hooks/useNavigateByAuth";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 function Login () {
   const navigate = useNavigate();
@@ -41,7 +42,9 @@ function Login () {
         />
       </div>
       <div>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <FormattedMessage id="link.register" />
+        </Link>
       </div>
     </div>
   );

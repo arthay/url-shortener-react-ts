@@ -1,0 +1,14 @@
+{
+  "form.field.email": "Email",
+  "form.field.name": "Name",
+  "form.field.password": "Password",
+  "form.button.login": "Login",
+  "form.button.register": "Register",
+  "validations.name.required": "Name field is required",
+  "validations.email.required": "Email field is required",
+  "validations.email.invalid": "Email field is invalid",
+  "validations.password.required": "Password field is required",
+  "validations.password.invalid": "Password field is invalid",
+  "link.login": "Login",
+  "link.register": "Register"
+}

@@ -4,17 +4,17 @@ import { emailValidation } from "@/lib/validations";
 export const loginFormSchema = z.object({
   email: z
     .string({
-      required_error: 'emailIsRequired',
+      required_error: 'email.required',
     })
     .refine(emailValidation, {
-      message: 'invalidEmailAddress',
+      message: 'email.invalid',
     }).default(''),
 
   password: z
     .string({
-      required_error: 'passwordIsRequired',
+      required_error: 'password.required',
     })
-    .min(8, { message: 'passwordValidation' }).default(''),
+    .min(8, { message: 'password.invalid' }).default(''),
 });
 
 export type TLoginForm = z.infer<typeof loginFormSchema>;

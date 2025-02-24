@@ -5,6 +5,7 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { Button } from "@/components/ui/button";
 import { Loader, Mail } from "lucide-react";
 import { TRegisterForm } from "@/components/forms/RegisterForm/validation.schema";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export interface IRegisterFormProps {
   onSubmit: (values: TRegisterForm) => Promise<void>;
@@ -21,6 +22,8 @@ function RegisterForm({
 }: IRegisterFormProps) {
   const isFieldsDisabled = isLoading || isDisabled;
 
+  const intl = useIntl();
+
   return (
     <Form {...form}>
       <form
@@ -35,13 +38,15 @@ function RegisterForm({
             render={({field}) => (
               <FormItem className="w-full">
                 <FormLabel
-                  className="leading-loose text-foreground">Name</FormLabel>
+                  className="leading-loose text-foreground">
+                  <FormattedMessage id="form.field.name" />
+                </FormLabel>
                 <FormControl ref={field.ref}>
                   <div className="relative">
                     <Input
                       className=""
                       type="text"
-                      placeholder="name"
+                      placeholder={intl.formatMessage({ id: "form.field.name" })}
                       {...field}
                     />
                   </div>
@@ -59,13 +64,15 @@ function RegisterForm({
             render={({field}) => (
               <FormItem className="w-full">
                 <FormLabel
-                  className="leading-loose text-foreground">Email</FormLabel>
+                  className="leading-loose text-foreground">
+                  <FormattedMessage id="form.field.email" />
+                </FormLabel>
                 <FormControl ref={field.ref}>
                   <div className="relative">
                     <Input
                       className="pl-8"
                       type="email"
-                      placeholder="email"
+                      placeholder={intl.formatMessage({ id: "form.field.email" })}
                       {...field}
                     />
                     <span className="absolute left-3 top-1/2 -translate-y-1/2">
@@ -87,9 +94,14 @@ function RegisterForm({
               render={({field}) => (
                 <FormItem className="w-full">
                   <FormLabel
-                    className="leading-loose text-foreground">Password</FormLabel>
+                    className="leading-loose text-foreground">
+                    <FormattedMessage id="form.field.password" />
+                  </FormLabel>
                   <FormControl ref={field.ref}>
-                    <PasswordInput placeholder="password" {...field} />
+                    <PasswordInput
+                      placeholder={intl.formatMessage({ id: "form.field.password" })}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage/>
                 </FormItem>
@@ -104,7 +116,7 @@ function RegisterForm({
               disabled={isFieldsDisabled}
             >
               {isLoading && (<Loader className="animate-spin" />)}
-              Login
+              <FormattedMessage id="form.button.register" />
             </Button>
           </div>
         </div>
