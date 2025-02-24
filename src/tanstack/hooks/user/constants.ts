@@ -1,1 +1,1 @@
-export const USER_INFO = 'USER_INFO';
+export const USER_INFO_QUERY_KEY = 'USER_INFO';

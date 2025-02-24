@@ -1,8 +1,8 @@
 import request from "../request";
 
-const signOut = () => request(
+const logout = () => request(
     { path: 'api/logout' },
     { method: 'POST' },
   );
 
-export default signOut;
+export default logout;

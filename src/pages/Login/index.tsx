@@ -19,7 +19,7 @@ function Login () {
     resolver: zodResolver(loginFormSchema),
     defaultValues: { email: '', password: '' },
     reValidateMode: 'onChange',
-  })
+  });
 
   const handleSubmitLoginForm = useCallback(async (values: TLoginForm) => {
     await loginMutation.mutateAsync({

@@ -9,6 +9,7 @@ import enMessages from "@/assets/translations/en.json";
 import './index.css'
 import routes from "@/routes";
 import { IntlProvider } from "react-intl";
+import { Toaster } from "@/components/ui/sonner";
 
 const local = 'en';
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
       )}
       <IntlProvider messages={enMessages} locale={local}>
         <RouterProvider router={routes} />
+        <Toaster />
       </IntlProvider>
     </QueryClientProvider>
   </StrictMode>,

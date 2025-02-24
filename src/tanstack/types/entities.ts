@@ -3,3 +3,11 @@ export interface IUser {
   name: string;
   email: string;
 }
+
+export interface IShortUrl {
+  public_id: string;
+  from: string;
+  to: string;
+  visits: number;
+  shortenedURL: string;
+}
