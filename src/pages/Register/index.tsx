@@ -7,9 +7,12 @@ import useRegisterMutation from "@/tanstack/hooks/auth/useRegisterMutation";
 import { useNavigate } from "react-router";
 import useNavigateByAuth from "@/hooks/useNavigateByAuth";
 import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
+import { getErrorMessage } from "@/lib/utils";
+import { toast } from "sonner";
 
 function Register() {
+  const intl = useIntl();
   const navigate = useNavigate();
   const { isPending } = useNavigateByAuth({ successRoute: '/' +
       '' });
@@ -23,13 +26,21 @@ function Register() {
   });
 
   const handleSubmitRegisterForm = useCallback(async (values: TRegisterForm) => {
-    await registerMutation.mutateAsync({
-      options: {
-        body: JSON.stringify(values)
-      }
-    });
+    try {
+      await registerMutation.mutateAsync({
+        options: {
+          body: JSON.stringify(values)
+        }
+      });
 
-    navigate('/login');
+      navigate('/login');
+    } catch (err: unknown) {
+      const message = getErrorMessage(err);
+
+      if (err) {
+        toast.error(intl.formatMessage({ id: `validations.${message}` }));
+      }
+    }
   }, [navigate, registerMutation]);
 
   return (

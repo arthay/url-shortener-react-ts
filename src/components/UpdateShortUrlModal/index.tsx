@@ -5,6 +5,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ReactNode } from "react";
+import { FormattedMessage } from "react-intl";
 
 interface IUpdateShortUrlModalProps {
   isOpen: boolean;
@@ -22,7 +23,9 @@ function UpdateShortUrlModal({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Update short url</DialogTitle>
+          <DialogTitle>
+            <FormattedMessage id="shortUrl.update.title" />
+          </DialogTitle>
         </DialogHeader>
         {children}
       </DialogContent>

@@ -7,9 +7,12 @@ import { useCallback } from "react";
 import useNavigateByAuth from "@/hooks/useNavigateByAuth";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
+import { getErrorMessage } from "@/lib/utils";
+import { toast } from "sonner";
 
 function Login () {
+  const intl = useIntl();
   const navigate = useNavigate();
   const loginMutation = useLoginMutation();
 
@@ -22,14 +25,22 @@ function Login () {
   });
 
   const handleSubmitLoginForm = useCallback(async (values: TLoginForm) => {
-    await loginMutation.mutateAsync({
-      options: {
-        body: JSON.stringify(values)
-      }
-    });
+    try {
+      await loginMutation.mutateAsync({
+        options: {
+          body: JSON.stringify(values)
+        }
+      });
 
-    navigate('/');
-  }, [loginMutation, navigate]);
+      navigate('/');
+    } catch (err: unknown) {
+      const message = getErrorMessage(err);
+
+      if (err) {
+        toast.error(intl.formatMessage({ id: `validations.${message}` }));
+      }
+    }
+  }, [intl, loginMutation, navigate]);
 
   return (
     <div className="w-screen h-screen flex flex-col gap-4 justify-center items-center">

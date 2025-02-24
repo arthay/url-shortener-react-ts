@@ -7,7 +7,7 @@ const useShortUrlsQuery = () => {
     queryKey: [SHORT_URLS_QUERY_KEY],
     queryFn: ({pageParam}) => {
       const searchParams = new URLSearchParams('itemsPerPage=20');
-      searchParams.set('page', String(pageParam));
+      searchParams.set('currentPage', String(pageParam));
       return getShortUrls(searchParams);
     },
     initialPageParam: 1,

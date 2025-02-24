@@ -1,6 +1,7 @@
 import { IShortUrl } from "@/tanstack/types/entities";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { FormattedMessage } from "react-intl";
 
 interface IShortUrlItemProps {
   item: IShortUrl;
@@ -15,7 +16,12 @@ function ShortUrlItem({
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Short Url {item.from}</CardTitle>
+        <CardTitle>
+          <FormattedMessage
+            id="shortUrl.item.title"
+            values={{ from: item.from }}
+          />
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex gap-1">
@@ -25,6 +31,10 @@ function ShortUrlItem({
         <div className="flex gap-1">
           <span>To:</span>
           <span>{item.to}</span>
+        </div>
+        <div className="flex gap-1">
+          <span>Visits:</span>
+          <span>{item.visits}</span>
         </div>
         <div className="flex gap-1">
           <span>Result:</span>

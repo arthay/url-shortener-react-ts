@@ -11,7 +11,7 @@ import routes from "@/routes";
 import { IntlProvider } from "react-intl";
 import { Toaster } from "@/components/ui/sonner";
 
-const local = 'en';
+const locale = 'en';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')!).render(
       {import.meta.env.DEV && (
         <ReactQueryDevtools initialIsOpen={false} />
       )}
-      <IntlProvider messages={enMessages} locale={local}>
+      <IntlProvider messages={enMessages} locale={locale}>
         <RouterProvider router={routes} />
         <Toaster />
       </IntlProvider>

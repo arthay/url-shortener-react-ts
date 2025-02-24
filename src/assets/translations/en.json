@@ -2,6 +2,8 @@
   "shortUrl.title": "URL Shortener",
   "shortUrl.list": "Short Url list",
   "shortUrl.loadMore": "Load more",
+  "shortUrl.update.title": "Update short url",
+  "shortUrl.item.title": "Short Url {from}",
   "form.field.email": "Email",
   "form.field.name": "Name",
   "form.field.password": "Password",
