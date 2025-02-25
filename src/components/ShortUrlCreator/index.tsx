@@ -8,7 +8,13 @@ import useCreateShortUrlMutation from "@/tanstack/hooks/shortUrl/useCreateShortU
 import { toast } from "sonner";
 import { useIntl } from "react-intl";
 
-function ShortUrlCreator() {
+interface IShortUrlCreatorProps {
+  disabled?: boolean;
+}
+
+function ShortUrlCreator({
+  disabled = false
+}: IShortUrlCreatorProps) {
   const intl = useIntl();
   const form = useForm<TCreateShortUrlForm>({
     resolver: zodResolver(createShortUrlFormSchema),
@@ -40,6 +46,7 @@ function ShortUrlCreator() {
           <CreateShortUrlForm
             onSubmit={handleCreateShortUrl}
             form={form}
+            isDisabled={disabled}
             isLoading={createShortUrlMutation.isPending}
           />
         </div>

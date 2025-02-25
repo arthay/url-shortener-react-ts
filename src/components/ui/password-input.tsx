@@ -25,7 +25,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(({
       <button
         type="button"
         onClick={toggleShowPassword}
-        className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+        className="absolute inset-y-0 right-3 flex items-center text-gray-500 cursor-pointer"
         tabIndex={-1}
       >
         {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}

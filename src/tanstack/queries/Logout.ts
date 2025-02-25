@@ -2,7 +2,7 @@ import request from "../request";
 
 const logout = () => request(
     { path: 'api/logout' },
-    { method: 'POST' },
+    { method: 'GET' },
   );
 
 export default logout;

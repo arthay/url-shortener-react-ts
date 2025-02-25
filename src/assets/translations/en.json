@@ -4,6 +4,10 @@
   "shortUrl.loadMore": "Load more",
   "shortUrl.update.title": "Update short url",
   "shortUrl.item.title": "Short Url {from}",
+  "shortUrl.item.from": "From:",
+  "shortUrl.item.to": "To:",
+  "shortUrl.item.visits": "Visits:",
+  "shortUrl.item.result": "Result:",
   "form.field.email": "Email",
   "form.field.name": "Name",
   "form.field.password": "Password",
@@ -28,5 +32,6 @@
   "link.register": "Register",
   "notifications.shortUrl.create.success": "Short url has been created",
   "notifications.shortUrl.update.success": "Slug has been updated",
-  "notifications.shortUrl.delete.success": "Slug has been updated"
+  "notifications.shortUrl.delete.success": "Slug has been updated",
+  "notifications.shortUrl.copy.success": "Url has been copied"
 }
