@@ -95,11 +95,33 @@ function RegisterForm({
                 <FormItem className="w-full">
                   <FormLabel
                     className="leading-loose text-foreground">
-                    <FormattedMessage id="form.field.password" />
+                    <FormattedMessage id="form.field.password"/>
                   </FormLabel>
                   <FormControl ref={field.ref}>
                     <PasswordInput
-                      placeholder={intl.formatMessage({ id: "form.field.password" })}
+                      placeholder={intl.formatMessage({id: "form.field.password"})}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="password_confirm"
+              disabled={isFieldsDisabled}
+              render={({field}) => (
+                <FormItem className="w-full">
+                  <FormLabel
+                    className="leading-loose text-foreground">
+                    <FormattedMessage id="form.field.passwordConfirm"/>
+                  </FormLabel>
+                  <FormControl ref={field.ref}>
+                    <PasswordInput
+                      placeholder={intl.formatMessage({id: "form.field.passwordConfirm"})}
                       {...field}
                     />
                   </FormControl>
@@ -115,8 +137,8 @@ function RegisterForm({
               className="w-full"
               disabled={isFieldsDisabled}
             >
-              {isLoading && (<Loader className="animate-spin" />)}
-              <FormattedMessage id="form.button.register" />
+              {isLoading && (<Loader className="animate-spin"/>)}
+              <FormattedMessage id="form.button.register"/>
             </Button>
           </div>
         </div>
